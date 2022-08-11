@@ -11,12 +11,14 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import { TestComponent } from './test/test.component';
 import { WeatherComponent } from './weather/weather.component';
+import { BigWeatherComponent } from './big-weather/big-weather.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
-    WeatherComponent
+    WeatherComponent,
+    BigWeatherComponent
   ],
   imports: [
     BrowserModule,

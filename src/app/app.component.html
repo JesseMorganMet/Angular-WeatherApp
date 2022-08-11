@@ -12,12 +12,12 @@
   <button type="submit">Submit</button>
 </form>
 
-<div></div>
-
-<div >{{myControl.value}}</div>
+<div *ngIf="weatherData">
+  <app-big-weather [somethingElse]="myControl.value" [data]="weatherData.SiteRep.DV.Location.Period[0]"></app-big-weather>
+</div>
 
 <div id="weatherComp" *ngIf="weatherData">
-  <app-weather *ngFor="let day of weatherData.SiteRep.DV.Location.Period" [data]="weatherData"> </app-weather>
+  <app-weather  *ngFor="let day of weatherData.SiteRep.DV.Location.Period" [data]="weatherData"> </app-weather>
 </div>
 <!--<app-test *ngFor="let day of days></app-test>-->
 <!--loop through all days -->
