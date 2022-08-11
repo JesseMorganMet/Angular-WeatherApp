@@ -14,7 +14,6 @@ export class WeatherService {
   }
 
   getData(locationId){
-    console.log(locationId);
     return this.http.get(`http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/${locationId}?res=3hourly&key=3e83b492-f4e4-44fe-b216-21874e51aee4`);
   }
 }

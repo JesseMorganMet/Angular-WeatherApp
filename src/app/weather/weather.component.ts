@@ -1,5 +1,4 @@
 import {Component, Input, OnInit, Output} from '@angular/core';
-import {AppComponent} from '../app.component';
 
 @Component({
   selector: 'app-weather',
@@ -9,20 +8,17 @@ import {AppComponent} from '../app.component';
 export class WeatherComponent implements OnInit {
 
   @Input() data;
+  @Input() i: number
   days
   temp
   percip
   wType
   img
   alt
-  @Input() i: number
 
   constructor() {
-
   }
-
   ngOnInit(): void {
-    console.log(this.i);
     this.days = this.data.SiteRep.DV.Location.Period;
     this.avgTemp(this.days);
     this.avgPercip(this.days);
@@ -36,7 +32,6 @@ export class WeatherComponent implements OnInit {
       let tempIndv = 0;
       tempIndv = parseInt(dayData[i].T);
       tempAvg = tempAvg + tempIndv;
-      console.log(tempAvg);
     }
     this.temp = (tempAvg/dayData.length).toFixed(0) + "C";
     // console.log(temp)
@@ -49,8 +44,6 @@ export class WeatherComponent implements OnInit {
       let ppIndv = 0;
       ppIndv = parseInt(dayData[i].Pp);
       ppAvg = ppAvg + ppIndv;
-      // console.log(ppIndv)
-      console.log(ppAvg);
     }
     let ppRound = Math.round((ppAvg/dayData.length)/5)*5;
     if(ppRound >= 10){

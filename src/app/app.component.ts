@@ -11,17 +11,13 @@ import * as moment from 'moment';
 })
 
 export class AppComponent {
+
   title = 'Weather App';
   locationNames:any = [];
-
   index:number = 0;
-
   days
-
   myControl: FormControl = new FormControl();
-
   filteredLocationNames: Observable<any[]>;
-
   weatherData:any;
 
   constructor(private service:WeatherService) {
@@ -36,7 +32,7 @@ export class AppComponent {
       }
       //search for location
 
-      // sort alpha
+      // sort alpha "borrowed code"
       this.locationNames.sort(function(a, b) {
         var nameA = a.name.toUpperCase(); // ignore upper and lowercase
         var nameB = b.name.toUpperCase(); // ignore upper and lowercase
@@ -72,7 +68,6 @@ export class AppComponent {
   submitForm(){
     let location: any = this.filter(this.myControl.value);
     this.service.getData(location[0].id).subscribe((data:any) => {
-      console.log(data);
       this.weatherData = data;
       console.log(this.weatherData);
       console.log(this.weatherData.SiteRep.DV.dataDate)
