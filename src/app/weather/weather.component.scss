@@ -1,12 +1,12 @@
 li{
   list-style: none;
-  margin: 1px;
 }
 img{
   width:100%;
+  max-width: 90px;
+  margin: -10px 0 -10px 0;
 }
 #dailyCard{
-  font-weight: bold;
   display: flex;
   flex-direction: column;
   justify-content: center;

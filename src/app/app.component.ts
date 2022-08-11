@@ -24,8 +24,6 @@ export class AppComponent {
 
   weatherData:any;
 
-  public static i: number = 0;
-
   constructor(private service:WeatherService) {
   }
   ngOnInit() {

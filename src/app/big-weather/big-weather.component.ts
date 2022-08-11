@@ -7,7 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class BigWeatherComponent implements OnInit {
 
-  @Input() somethingElse;
+  @Input() placeName;
   @Input() data;
   tempMin
   tempMax

@@ -15,24 +15,18 @@ export class WeatherComponent implements OnInit {
   wType
   img
   alt
-  i
+  @Input() i: number
 
   constructor() {
 
   }
 
   ngOnInit(): void {
-    this.i = AppComponent.i;
     console.log(this.i);
     this.days = this.data.SiteRep.DV.Location.Period;
     this.avgTemp(this.days);
     this.avgPercip(this.days);
     this.weatherType(this.days);
-    AppComponent.i = AppComponent.i + 1;
-    if(AppComponent.i >= 5){
-      AppComponent.i=0;
-    }
-    console.log(this.i);
   }
 
   avgTemp(days){

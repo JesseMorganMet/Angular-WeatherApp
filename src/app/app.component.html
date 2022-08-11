@@ -1,23 +1,22 @@
-<h1>{{title}}</h1>
-
-<form (ngSubmit)="submitForm()">
-  <mat-form-field>
-    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let location of filteredLocationNames | async" [value]="location.name" >
-        {{location.name}}
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
-  <button type="submit">Submit</button>
-</form>
+<div id="searchBoy">
+  <form (ngSubmit)="submitForm()">
+    <mat-form-field>
+      <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let location of filteredLocationNames | async" [value]="location.name" >
+          {{location.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <button type="submit">Submit</button>
+  </form>
+</div>
 
 <div *ngIf="weatherData">
-  <app-big-weather [somethingElse]="myControl.value" [data]="weatherData.SiteRep.DV.Location.Period[0]"></app-big-weather>
+  <app-big-weather [placeName]="myControl.value" [data]="weatherData.SiteRep.DV.Location.Period[0]"></app-big-weather>
 </div>
 
 <div id="weatherComp" *ngIf="weatherData">
-  <app-weather  *ngFor="let day of weatherData.SiteRep.DV.Location.Period" [data]="weatherData"> </app-weather>
+  <app-weather  *ngFor="let day of weatherData.SiteRep.DV.Location.Period; index as i;" [i]="i" [data]="weatherData" > </app-weather>
 </div>
-<!--<app-test *ngFor="let day of days></app-test>-->
-<!--loop through all days -->
+

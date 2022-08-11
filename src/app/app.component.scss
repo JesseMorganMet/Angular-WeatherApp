@@ -1,5 +1,13 @@
 #weatherComp{
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
   margin:0;
+}
+#searchBoy{
+  display: flex;
+  justify-content: space-evenly;
+}
+mat-form-field{
+  width:50vw;
 }
