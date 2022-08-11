@@ -1,7 +1,23 @@
-<p>{{title}}</p>
+<h1>{{title}}</h1>
 
-<mat-autocomplete>
-  <mat-option *ngFor="let location of locationNames" [value]="location.id">
-    {{location.name}}
-  </mat-option>
-</mat-autocomplete>
+<form (ngSubmit)="submitForm()">
+  <mat-form-field>
+    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let location of filteredLocationNames | async" [value]="location.name" >
+        {{location.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <button type="submit">Submit</button>
+</form>
+
+<div></div>
+
+<div >{{myControl.value}}</div>
+
+<div id="weatherComp" *ngIf="weatherData">
+  <app-weather *ngFor="let day of weatherData.SiteRep.DV.Location.Period" [data]="weatherData"> </app-weather>
+</div>
+<!--<app-test *ngFor="let day of days></app-test>-->
+<!--loop through all days -->
