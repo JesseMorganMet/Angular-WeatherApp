@@ -1,7 +1,7 @@
 <div id="bigBit">
   <h2>{{placeName}}</h2>
-  <img src={{img}} alt={{alt}}>
-  <h2>{{wType}}</h2>
+  <img src= "{{data.Rep | weatherType}}" alt= "{{data.Rep | weatherTypeAlt}}">
+  <h2>{{data.Rep | wType}}</h2>
 </div>
 
 <!--collums-->
@@ -9,14 +9,14 @@
 <!--  rows-->
   <div id="dataTextIn">
     <h2>Highest Temperature</h2>
-    <h2>{{tempMax}}</h2>
+    <h2>{{data.Rep | maxTemp}}</h2>
   </div>
   <div id="dataTextIn">
     <h2>Lowest Temperature</h2>
-    <h2>{{tempMin}}</h2>
+    <h2>{{data.Rep | minTemp}}</h2>
   </div>
   <div id="dataTextIn">
     <h2>UV</h2>
-    <h2>{{uvType}}</h2>
+    <h2>{{data.Rep | uv}}</h2>
   </div>
 </div>

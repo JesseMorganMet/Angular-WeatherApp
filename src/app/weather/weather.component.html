@@ -1,7 +1,6 @@
 <div id="dailyCard">
-  <li ><img src="{{img}}" alt="{{alt}}"></li>
-  <li>{{percip}}</li>
-  <li>{{temp}}</li>
-  <li>{{data.SiteRep.DV.Location.Period[i].value | date:'E'}}</li>
+  <li ><img src= "{{data.Rep | weatherType}}" alt= "{{data.Rep | weatherTypeAlt}}"></li>
+  <li>{{data.Rep | avgPrecip}}</li>
+  <li>{{data.Rep | avgTemp}}</li>
+  <li>{{data.value | date:'E'}}</li>
 </div>
-

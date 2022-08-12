@@ -17,5 +17,5 @@
 </div>
 
 <div id="weatherComp" *ngIf="weatherData">
-  <app-weather  *ngFor="let day of weatherData.SiteRep.DV.Location.Period; index as i;" [i]="i" [data]="weatherData" > </app-weather>
+  <app-weather  *ngFor="let day of weatherData.SiteRep.DV.Location.Period; index as i;" [data]="weatherData.SiteRep.DV.Location.Period[i]" > </app-weather>
 </div>

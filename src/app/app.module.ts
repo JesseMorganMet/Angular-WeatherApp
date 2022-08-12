@@ -12,13 +12,30 @@ import {MatInputModule} from '@angular/material/input';
 import { TestComponent } from './test/test.component';
 import { WeatherComponent } from './weather/weather.component';
 import { BigWeatherComponent } from './big-weather/big-weather.component';
+import {
+  AvgTempPipe,
+  WeatherTypePipe,
+  AvgPrecipPipe,
+  WeatherTypeAltPipe,
+  WTypePipe,
+  uvPipe,
+  minTempPipe, maxTempPipe
+} from './avg-temp.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
     WeatherComponent,
-    BigWeatherComponent
+    BigWeatherComponent,
+    AvgTempPipe,
+    AvgPrecipPipe,
+    WeatherTypePipe,
+    WeatherTypeAltPipe,
+    WTypePipe,
+    uvPipe,
+    minTempPipe,
+    maxTempPipe
   ],
   imports: [
     BrowserModule,
