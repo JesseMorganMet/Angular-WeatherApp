@@ -61,16 +61,16 @@ export class WeatherComponent implements OnInit {
     } else if(weatherDaily===2||weatherDaily===3||weatherDaily===7||weatherDaily===8){
       this.img = '../assets/icons/Cloud.png';
       this.alt = 'Cloudy Icon';
-    } else if(weatherDaily>4&&weatherDaily<6){
+    } else if(weatherDaily>=4&&weatherDaily<=6){
       this.img = '../assets/icons/Fog.png';
       this.alt = 'Foggy Icon';
-    } else if(weatherDaily>9&&weatherDaily<15){
+    } else if(weatherDaily>=9&&weatherDaily<=15){
       this.img = '../assets/icons/Rain.png';
       this.alt = 'Raining Icon';
-    } else if(weatherDaily>16&&weatherDaily<27){
+    } else if(weatherDaily>=16&&weatherDaily<=27){
       this.img = '../assets/icons/Snow.png';
       this.alt = 'Snowing Icon';
-    } else if(weatherDaily>28&&weatherDaily<30){
+    } else if(weatherDaily>=28&&weatherDaily<=30){
       this.img = '../assets/icons/Thunder.png';
       this.alt = 'Thunder Icon';
     } else{

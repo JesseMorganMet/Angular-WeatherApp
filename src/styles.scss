@@ -14,3 +14,21 @@ body{
 h2{
   margin:0 !important;
 }
+
+
+@media screen and (max-width: 800px){
+  h2{
+    font-size: small !important;
+    text-wrap: normal !important;
+    text-align: center !important;
+  }
+  #bigBit > img{
+    max-width: 150px !important;
+  }
+  li > img{
+    max-width: 40px !important;
+  }
+  li{
+    font-size: x-small !important;
+  }
+}

@@ -88,5 +88,4 @@ export class BigWeatherComponent implements OnInit {
       console.log(weatherDaily);
     }
   }
-
 }
