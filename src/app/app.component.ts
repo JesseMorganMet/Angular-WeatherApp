@@ -58,7 +58,6 @@ export class AppComponent {
 
   private filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-
     return this.locationNames.filter(location => {
       return location.name.toLowerCase().includes(filterValue)
     });
