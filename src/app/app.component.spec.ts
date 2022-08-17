@@ -3,7 +3,7 @@ import { AppComponent } from './app.component';
 import {BigWeatherComponent} from './big-weather/big-weather.component';
 import {WeatherComponent} from './weather/weather.component';
 import {FormControl} from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule} from '@angular/material/form-field';
 import {WeatherService} from './weather.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
@@ -315,5 +315,6 @@ describe('AppComponent', () => {
     component.submitForm();
     fixture.detectChanges();
     expect(fixture).toMatchSnapshot(); //not yet working
+
   });
 });
