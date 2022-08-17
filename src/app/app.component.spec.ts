@@ -314,7 +314,7 @@ describe('AppComponent', () => {
     component.locationNames = fakeLocal
     component.submitForm();
     fixture.detectChanges();
-    expect(fixture).toMatchSnapshot(); //not yet working
+    expect(fixture).toMatchSnapshot();
 
   });
 });
