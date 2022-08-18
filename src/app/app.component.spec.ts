@@ -3,7 +3,7 @@ import { AppComponent } from './app.component';
 import {BigWeatherComponent} from './big-weather/big-weather.component';
 import {WeatherComponent} from './weather/weather.component';
 import {FormControl} from '@angular/forms';
-import { MatFormFieldModule} from '@angular/material/form-field';
+import {MatFormFieldControl, MatFormFieldModule} from '@angular/material/form-field';
 import {WeatherService} from './weather.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
@@ -16,7 +16,11 @@ describe('AppComponent', () => {
 
   let fakeData: any = "Taunton";
 
-  let fakeLocal: any = {"Locations":{"Location":[{"name": "Taunton", "id": "324072"}]}};
+  let fakeLocal: any = {"Locations":{"Location":[{"name": "Taunton", "id": "324072"},{"name": "Bedale", "id": "350287"},{"name": "Exeter Racecourse", "id": "351414"}]}};
+
+  let fakeArr = [{"id": "324072","name": "Taunton"},{"id": "350287","name": "Bedale"},{"id": "351414","name": "Exeter Racecourse"}];
+
+  let fakeLocalSorted = [{"id": "350287","name": "Bedale"},{"id": "351414","name": "Exeter Racecourse"},{"id": "324072","name": "Taunton"}];
 
   let fakeLocalData: any =  {
     "SiteRep": {
@@ -309,12 +313,39 @@ describe('AppComponent', () => {
     component = fixture.componentInstance;
   })
 
-  it('should create the app', () => {
+  xit('should create the app', () => {
     component.myControl.patchValue(fakeData)
     component.locationNames = fakeLocal
     component.submitForm();
     fixture.detectChanges();
     expect(fixture).toMatchSnapshot();
-
   });
+
+  it('Should turn the json data into an array', () => {
+    expect(component.locationsSearch(fakeLocal).length).toBe(3);
+  });
+
+  it('Should turn the array into alphabetical', () => {
+    let hello = component.locationSort(fakeArr);
+    expect(hello[0].name).toBe("Bedale");
+  });
+
+  it('Should return a placename based on an incomplete search', () => {
+    const t = "Taun";
+    component.locationNames = fakeLocalSorted;
+    let hello = component.filter(t)[0]['name'];
+    expect(hello).toBe("Taunton");
+  });
+
+  fit('Should return a weather data from specific id', () => {
+
+    const t = "Taun";
+    component.myControl.patchValue(t);
+    console.log(component);
+    component.submitForm();
+
+    console.log(component.weatherData)
+    expect(component.weatherData).toBe(fakeLocalData);
+  });
+
 });

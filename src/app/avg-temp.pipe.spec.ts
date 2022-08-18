@@ -12,7 +12,7 @@ describe('Pipes', () => {
     const pipe = new AvgPrecipPipe();
     it('Should return the average precipitation chance via string', () => {
       expect(pipe.transform([{"Pp": "3"},{"Pp": "4"}])).toBe('5%');
-    });
+      });
   });
 
   describe('WeatherTypePipe', () => {
