@@ -19,7 +19,8 @@ import {
   WeatherTypeAltPipe,
   WTypePipe,
   uvPipe,
-  minTempPipe, maxTempPipe
+  minTempPipe,
+  maxTempPipe
 } from './avg-temp.pipe';
 
 @NgModule({

@@ -313,14 +313,6 @@ describe('AppComponent', () => {
     component = fixture.componentInstance;
   })
 
-  xit('should create the app', () => {
-    component.myControl.patchValue(fakeData)
-    component.locationNames = fakeLocal
-    component.submitForm();
-    fixture.detectChanges();
-    expect(fixture).toMatchSnapshot();
-  });
-
   it('Should turn the json data into an array', () => {
     expect(component.locationsSearch(fakeLocal).length).toBe(3);
   });
@@ -337,13 +329,11 @@ describe('AppComponent', () => {
     expect(hello).toBe("Taunton");
   });
 
-  fit('Should return a weather data from specific id', () => {
+  fit('Should return weather data from specific id', () => {
 
     const t = "Taun";
     component.myControl.patchValue(t);
-    console.log(component);
     component.submitForm();
-
     console.log(component.weatherData)
     expect(component.weatherData).toBe(fakeLocalData);
   });
