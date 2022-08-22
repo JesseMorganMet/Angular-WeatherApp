@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import {WeatherService} from './weather.service';
-import {FormControl, FormGroup} from '@angular/forms';
-import {filter, map, Observable, startWith} from 'rxjs';
-import * as moment from 'moment';
+import {FormControl} from '@angular/forms';
+import {map, Observable, startWith} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -47,12 +46,12 @@ export class AppComponent {
         var nameA = a.name.toUpperCase();
         var nameB = b.name.toUpperCase();
         if (nameA < nameB) {
-          return -1; //nameA comes first
+          return -1;
         }
         if (nameA > nameB) {
-          return 1; // nameB comes first
+          return 1;
         }
-        return 0;  // names must be equal
+        return 0;
       });
     return data;
   }
@@ -71,7 +70,6 @@ export class AppComponent {
     return this.locationNames.filter(location => {
       return location.name.toLowerCase().includes(filterValue)
     });
-    //filter to type live
   }
 
   submitForm(){

@@ -2,12 +2,10 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import {BigWeatherComponent} from './big-weather/big-weather.component';
 import {WeatherComponent} from './weather/weather.component';
-import {FormControl} from '@angular/forms';
-import {MatFormFieldControl, MatFormFieldModule} from '@angular/material/form-field';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import {WeatherService} from './weather.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {jest} from '@jest/globals';
 
 describe('AppComponent', () => {
   let component: AppComponent;
