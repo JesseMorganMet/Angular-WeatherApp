@@ -28,7 +28,6 @@ export class AppComponent {
 
   locationFunctions(){
     this.service.getLocation().subscribe((data:any) => {
-      console.log(data);
       this.locationsSearch(data);
       this.locationSort(this.locationNames);
       this.locationFilter(this.locationNames);
@@ -78,15 +77,8 @@ export class AppComponent {
   submitForm(){
     let location: any = this.filter(this.myControl.value);
     this.service.getData(location[0].id).subscribe((data:any) => {
-
-      console.log(data)
       this.weatherData = data;
-      console.log(this.weatherData);
-      console.log(location[0].id);
-      console.log(this.weatherData.SiteRep.DV.dataDate)
       return this.weatherData;
     });
-
   }
-
 }
