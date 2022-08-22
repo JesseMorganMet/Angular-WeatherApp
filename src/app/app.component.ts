@@ -78,6 +78,12 @@ export class AppComponent {
 
   submitForm(){
     let location: any = this.filter(this.myControl.value);
+    // Fix needed
+    // location[0] always selects the top of the search
+    // need to make the search go off with the selected option
+    // i.e. e1, e2, e3, e4, e5. these are location options with e1 at the top
+    // you select e5, e5 appears in the search bar however location[0] === e1
+    // so e1 location data is retrieved
     this.service.getData(location[0].id).subscribe((data:any) => {
       this.weatherData = data;
       return this.weatherData;
