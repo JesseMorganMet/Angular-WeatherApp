@@ -26,6 +26,10 @@ export class AppComponent {
   }
 
   locationFunctions(){
+    // Potential improvement
+    // make getLocation fire off once on load and sort the data in an array
+    // so if multiple location searches are done only one get request occurs
+    // (might speed up searches?)
     this.service.getLocation().subscribe((data:any) => {
       this.locationsSearch(data);
       this.locationSort(this.locationNames);
