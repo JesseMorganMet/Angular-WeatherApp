@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WeatherComponent Should render the page correctly 1`] = `
+<app-weather
+  __ngContext__={[Function LRootView]}
+  data={[Function Object]}
+>
+  <div
+    id="dailyCard"
+  >
+    <li>
+      <img
+        alt="Cloudy icon"
+        src="../assets/icons/Cloud.png"
+      />
+    </li>
+    <li>
+      50%
+    </li>
+    <li>
+      20C
+    </li>
+    <li>
+      Mon
+    </li>
+  </div>
+</app-weather>
+`;

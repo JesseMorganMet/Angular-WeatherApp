@@ -59,22 +59,12 @@ describe('BigWeatherComponent', () => {
     component = fixture.componentInstance;
   });
 
-  it('Should create', () => {
+  it('Should render the page correctly', () => {
+    component.placeName = "Place"
     component.data = fakeData;
     fixture.detectChanges();
-    expect(component).toBeTruthy();
+    expect(fixture).toMatchSnapshot();
   });
 
-  it('Should img path injected', () => {
-    component.data = fakeData;
-    fixture.detectChanges();
-    expect(fixture.nativeElement.children[0].children[1].src).toBe("http://localhost/assets/icons/Cloud.png");
-  });
-
-  it('Should img alt name injected', () => {
-    component.data = fakeData;
-    fixture.detectChanges();
-    expect(fixture.nativeElement.children[0].children[1].alt).toBe("Cloudy icon");
-  });
 });
 

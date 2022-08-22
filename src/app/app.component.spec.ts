@@ -6,6 +6,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {WeatherService} from './weather.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {of} from 'rxjs';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -317,16 +318,27 @@ describe('AppComponent', () => {
   });
 
   it('Should turn the array into alphabetical', () => {
-    let mock = component.locationSort(fakeArr);
-    expect(mock[0].name).toBe("Bedale");
+    let result = component.locationSort(fakeArr);
+    expect(result[0].name).toBe("Bedale");
   });
 
   it('Should return a placename based on an incomplete search', () => {
     const input = "Taun";
     component.locationNames = fakeLocalSorted;
-    let mock = component.filter(input)[0];
-    expect(mock['name']).toBe("Taunton");
-    expect(mock['id']).toBe("324072");
+    let result = component.filter(input)[0];
+    expect(result['name']).toBe("Taunton");
+    expect(result['id']).toBe("324072");
   });
+
+  it('submitForm', async () => {
+    component.filter = jest.fn().mockImplementation( () => {
+      return fakeLocalSorted;
+    })
+    service.getData = jest.fn().mockImplementation( () => of('any'));
+    component.submitForm();
+    await fixture.whenStable().then(() =>{
+      expect(component.weatherData).toBe('any');
+    })
+  })
 
 });

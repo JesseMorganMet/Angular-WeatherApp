@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BigWeatherComponent Should render the page correctly 1`] = `
+<app-big-weather
+  __ngContext__={[Function LRootView]}
+  data={[Function Object]}
+  placeName={[Function String]}
+>
+  <div
+    id="bigBit"
+  >
+    <h2>
+      Place
+    </h2>
+    <img
+      alt="Cloudy icon"
+      src="../assets/icons/Cloud.png"
+    />
+    <h2>
+      Cloudy
+    </h2>
+  </div><div
+    id="dataText"
+  >
+    <div
+      id="dataTextIn"
+    >
+      <h2>
+        Highest Temperature
+      </h2>
+      <h2>
+        23
+      </h2>
+    </div>
+    <div
+      id="dataTextIn"
+    >
+      <h2>
+        Lowest Temperature
+      </h2>
+      <h2>
+        17
+      </h2>
+    </div>
+    <div
+      id="dataTextIn"
+    >
+      <h2>
+        UV
+      </h2>
+      <h2>
+        L
+      </h2>
+    </div>
+  </div>
+</app-big-weather>
+`;

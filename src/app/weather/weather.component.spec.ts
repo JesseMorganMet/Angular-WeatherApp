@@ -69,9 +69,9 @@ describe('WeatherComponent', () => {
     component = fixture.componentInstance;
   });
 
-  it('should create', () => {
+  it('Should render the page correctly', () => {
     component.data = fakeData;
     fixture.detectChanges();
-    expect(component).toBeTruthy();
+    expect(fixture).toMatchSnapshot();
   });
 });
