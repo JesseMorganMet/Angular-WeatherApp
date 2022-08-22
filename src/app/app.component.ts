@@ -23,13 +23,15 @@ export class AppComponent {
   constructor(private service:WeatherService) {
   }
   ngOnInit() {
-    //search for location
-    this.service.getLocation().subscribe((data:any) => {
-    console.log(data);
-    this.locationsSearch(data);
-    this.locationSort(this.locationNames);
-    this.locationFilter(this.locationNames);
+    this.locationFunctions()
+  }
 
+  locationFunctions(){
+    this.service.getLocation().subscribe((data:any) => {
+      console.log(data);
+      this.locationsSearch(data);
+      this.locationSort(this.locationNames);
+      this.locationFilter(this.locationNames);
     })
   }
 
