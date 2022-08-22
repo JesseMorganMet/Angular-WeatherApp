@@ -7,6 +7,7 @@ import {MatFormFieldControl, MatFormFieldModule} from '@angular/material/form-fi
 import {WeatherService} from './weather.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {jest} from '@jest/globals';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -326,16 +327,10 @@ describe('AppComponent', () => {
     const t = "Taun";
     component.locationNames = fakeLocalSorted;
     let hello = component.filter(t)[0]['name'];
+    let hello2 = component.filter(t)[0]['id'];
     expect(hello).toBe("Taunton");
+    expect(hello2).toBe("324072");
   });
 
-  fit('Should return weather data from specific id', () => {
-
-    let t = "Taun";
-    component.location = fakeData;
-    component.submitForm();
-    console.log(component.weatherData)
-    expect(component.weatherData).toBe(fakeLocalData);
-  });
 
 });
