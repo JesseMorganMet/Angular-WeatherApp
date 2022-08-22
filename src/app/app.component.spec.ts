@@ -319,18 +319,16 @@ describe('AppComponent', () => {
   });
 
   it('Should turn the array into alphabetical', () => {
-    let hello = component.locationSort(fakeArr);
-    expect(hello[0].name).toBe("Bedale");
+    let mock = component.locationSort(fakeArr);
+    expect(mock[0].name).toBe("Bedale");
   });
 
   it('Should return a placename based on an incomplete search', () => {
-    const t = "Taun";
+    const input = "Taun";
     component.locationNames = fakeLocalSorted;
-    let hello = component.filter(t)[0]['name'];
-    let hello2 = component.filter(t)[0]['id'];
-    expect(hello).toBe("Taunton");
-    expect(hello2).toBe("324072");
+    let mock = component.filter(input)[0];
+    expect(mock['name']).toBe("Taunton");
+    expect(mock['id']).toBe("324072");
   });
-
 
 });
