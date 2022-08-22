@@ -14,7 +14,7 @@ describe('AppComponent', () => {
   let service: WeatherService;
   let httpTestingController: HttpTestingController;
 
-  let fakeData: any = "Taunton";
+  let fakeData: any = {"name": "Taunton", "id": "324072"};
 
   let fakeLocal: any = {"Locations":{"Location":[{"name": "Taunton", "id": "324072"},{"name": "Bedale", "id": "350287"},{"name": "Exeter Racecourse", "id": "351414"}]}};
 
@@ -331,8 +331,8 @@ describe('AppComponent', () => {
 
   fit('Should return weather data from specific id', () => {
 
-    const t = "Taun";
-    component.myControl.patchValue(t);
+    let t = "Taun";
+    component.location = fakeData;
     component.submitForm();
     console.log(component.weatherData)
     expect(component.weatherData).toBe(fakeLocalData);

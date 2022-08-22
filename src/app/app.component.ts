@@ -15,7 +15,7 @@ export class AppComponent {
   title = 'Weather App';
   locationNames:any = [];
   index:number = 0;
-  days;
+  days
   myControl: FormControl = new FormControl();
   filteredLocationNames: Observable<any[]>;
   weatherData:any;
@@ -28,7 +28,7 @@ export class AppComponent {
     console.log(data);
     this.locationsSearch(data);
     this.locationSort(this.locationNames);
-    this.locationFilter();
+    this.locationFilter(this.locationNames);
 
     })
   }
@@ -56,7 +56,7 @@ export class AppComponent {
     return data;
   }
 
-  locationFilter(){
+  locationFilter(data){
     this.filteredLocationNames = this.myControl.valueChanges
       .pipe(
         startWith(''),
@@ -68,7 +68,7 @@ export class AppComponent {
   filter(value: string): string[] {
     const filterValue = value.toLowerCase();
     return this.locationNames.filter(location => {
-      return location.name.toLowerCase().includes(filterValue);
+      return location.name.toLowerCase().includes(filterValue)
     });
     //filter to type live
   }
@@ -76,9 +76,15 @@ export class AppComponent {
   submitForm(){
     let location: any = this.filter(this.myControl.value);
     this.service.getData(location[0].id).subscribe((data:any) => {
+
+      console.log(data)
       this.weatherData = data;
+      console.log(this.weatherData);
+      console.log(location[0].id);
+      console.log(this.weatherData.SiteRep.DV.dataDate)
       return this.weatherData;
     });
+
   }
 
 }

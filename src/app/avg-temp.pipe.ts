@@ -35,17 +35,17 @@ export class WeatherTypePipe implements PipeTransform {
   transform(data: any): any {
     let weatherDaily = parseInt(data[0].W);
     if (weatherDaily===1|| weatherDaily===0) {
-      return "../assets/icons/Sun.png";
+      return "../assets/icons/Sun.png"
     } else if(weatherDaily===2||weatherDaily===3||weatherDaily===7||weatherDaily===8){
-      return "../assets/icons/Cloud.png";
+      return "../assets/icons/Cloud.png"
     } else if(weatherDaily>=4&&weatherDaily<=6){
-      return "../assets/icons/Fog.png";
+      return "../assets/icons/Fog.png"
     } else if(weatherDaily>=9&&weatherDaily<=15){
-      return "../assets/icons/Rain.png";
+      return "../assets/icons/Rain.png"
     } else if(weatherDaily>=16&&weatherDaily<=27){
-      return "../assets/icons/Snow.png";
+      return "../assets/icons/Snow.png"
     } else if(weatherDaily>=28&&weatherDaily<=30){
-      return "../assets/icons/Thunder.png";
+      return "../assets/icons/Thunder.png"
     } else{
       console.log("Something went wrong");
       console.log(weatherDaily);
@@ -58,17 +58,17 @@ export class WeatherTypeAltPipe implements PipeTransform {
   transform(data: any): any {
     let weatherDaily = parseInt(data[0].W);
     if (weatherDaily===1|| weatherDaily===0) {
-      return "Sunny icon";
+      return "Sunny icon"
     } else if(weatherDaily===2||weatherDaily===3||weatherDaily===7||weatherDaily===8){
-      return "Cloudy icon";
+      return "Cloudy icon"
     } else if(weatherDaily>=4&&weatherDaily<=6){
-      return "Foggy icon";
+      return "Foggy icon"
     } else if(weatherDaily>=9&&weatherDaily<=15){
-      return "Raining icon";
+      return "Raining icon"
     } else if(weatherDaily>=16&&weatherDaily<=27){
-      return "Snowing icon";
+      return "Snowing icon"
     } else if(weatherDaily>=28&&weatherDaily<=30){
-      return "Thunder icon";
+      return "Thunder icon"
     } else{
       console.log("Something went wrong");
       console.log(weatherDaily);
