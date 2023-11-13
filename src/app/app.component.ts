@@ -21,7 +21,7 @@ export class AppComponent {
 
   constructor(private service: WeatherService) {
   }
-
+//just testing
   ngOnInit() {
     this.locationFunctions()
   }
