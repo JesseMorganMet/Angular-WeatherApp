@@ -25,7 +25,7 @@ describe('Pipes', () => {
   describe('WeatherTypeAltPipe', () => {
     const pipe = new WeatherTypeAltPipe();
     it('Should return correct image alt text', () => {
-      expect(pipe.transform([{"W": "34"}])).toBe("Cloudy icon");
+      expect(pipe.transform([{"W": "3"}])).toBe("Cloudy icon");
     });
   });
 
