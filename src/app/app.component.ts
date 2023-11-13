@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {WeatherService} from './weather.service';
 import {FormControl} from '@angular/forms';
 import {map, Observable, startWith} from 'rxjs';
@@ -12,55 +12,52 @@ import {map, Observable, startWith} from 'rxjs';
 export class AppComponent {
 
   title = 'Weather App';
-  locationNames:any = [];
-  index:number = 0;
+  locationNames: any = [];
+  index: number = 0;
   days
   myControl: FormControl = new FormControl();
   filteredLocationNames: Observable<any[]>;
-  weatherData:any;
+  weatherData: any;
 
-  constructor(private service:WeatherService) {
+  constructor(private service: WeatherService) {
   }
+
   ngOnInit() {
     this.locationFunctions()
   }
 
-  locationFunctions(){
-    // Potential improvement
-    // make getLocation fire off once on load and sort the data in an array
-    // so if multiple location searches are done only one get request occurs
-    // (might speed up searches?)
-    this.service.getLocation().subscribe((data:any) => {
+  locationFunctions() {
+    this.service.getLocation().subscribe((data: any) => {
       this.locationsSearch(data);
       this.locationSort(this.locationNames);
       this.locationFilter(this.locationNames);
     })
   }
 
-  locationsSearch(data){
-    for(let i=0;i<data.Locations.Location.length;i++){
-        const location = data.Locations.Location[i];
-        this.locationNames.push({name:location.name, id:location.id});
-      }
+  locationsSearch(data) {
+    for (let i = 0; i < data.Locations.Location.length; i++) {
+      const location = data.Locations.Location[i];
+      this.locationNames.push({name: location.name, id: location.id});
+    }
     return this.locationNames;
   }
 
-  locationSort(data){
-    data.sort(function(a, b) {
-        var nameA = a.name.toUpperCase();
-        var nameB = b.name.toUpperCase();
-        if (nameA < nameB) {
-          return -1;
-        }
-        if (nameA > nameB) {
-          return 1;
-        }
-        return 0;
-      });
+  locationSort(data) {
+    data.sort(function (a, b) {
+      var nameA = a.name.toUpperCase();
+      var nameB = b.name.toUpperCase();
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    });
     return data;
   }
 
-  locationFilter(data){
+  locationFilter(data) {
     this.filteredLocationNames = this.myControl.valueChanges
       .pipe(
         startWith(''),
@@ -70,13 +67,13 @@ export class AppComponent {
   }
 
   filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    return this.locationNames.filter(location => {
-      return location.name.toLowerCase().includes(filterValue)
-    });
+      const filterValue = value.toLowerCase();
+      return this.locationNames.filter(location => {
+        return location.name.toLowerCase().includes(filterValue)
+      });
   }
 
-  submitForm(){
+  submitForm() {
     let location: any = this.filter(this.myControl.value);
     // Fix needed
     // location[0] always selects the top of the search
@@ -84,7 +81,7 @@ export class AppComponent {
     // i.e. e1, e2, e3, e4, e5. these are location options with e1 at the top
     // you select e5, e5 appears in the search bar however location[0] === e1
     // so e1 location data is retrieved
-    this.service.getData(location[0].id).subscribe((data:any) => {
+    this.service.getData(location[0].id).subscribe((data: any) => {
       this.weatherData = data;
       return this.weatherData;
     });
