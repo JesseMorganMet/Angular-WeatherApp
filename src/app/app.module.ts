@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -22,21 +22,15 @@ import {
   minTempPipe,
   maxTempPipe
 } from './avg-temp.pipe';
+import { defineCustomElements as ui } from '@mo/ui/loader';
+ui();
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
     WeatherComponent,
-    BigWeatherComponent,
-    AvgTempPipe,
-    AvgPrecipPipe,
-    WeatherTypePipe,
-    WeatherTypeAltPipe,
-    WTypePipe,
-    uvPipe,
-    minTempPipe,
-    maxTempPipe
+    BigWeatherComponent
   ],
   imports: [
     BrowserModule,
@@ -46,11 +40,20 @@ import {
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    WeatherTypePipe,
+    WeatherTypeAltPipe,
+    AvgPrecipPipe,
+    AvgTempPipe,
+    WTypePipe,
+    maxTempPipe,
+    minTempPipe,
+    uvPipe
   ],
   providers: [
     WeatherService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

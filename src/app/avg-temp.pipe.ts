@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({name: 'avgTemp'})
+@Pipe({standalone: true, name: 'avgTemp'})
 export class AvgTempPipe implements PipeTransform {
   transform(data: any): string {
     let tempAvg = 0;
@@ -9,11 +9,11 @@ export class AvgTempPipe implements PipeTransform {
       tempIndv = parseInt(data[i].T);
       tempAvg = tempAvg + tempIndv;
     }
-    return (tempAvg/data.length).toFixed(0) + "C";
+    return (tempAvg/data.length).toFixed(0);
   }
 }
 
-@Pipe({name: 'avgPrecip'})
+@Pipe({standalone: true, name: 'avgPrecip'})
 export class AvgPrecipPipe implements PipeTransform {
   transform(data: any): string {
     let ppAvg = 0;
@@ -30,7 +30,7 @@ export class AvgPrecipPipe implements PipeTransform {
   }
 }
 
-@Pipe({name: 'weatherType'})
+@Pipe({standalone: true, name: 'weatherType'})
 export class WeatherTypePipe implements PipeTransform {
   transform(data: any): any {
     let weatherDaily = parseInt(data[0].W);
@@ -53,7 +53,7 @@ export class WeatherTypePipe implements PipeTransform {
   }
 }
 
-@Pipe({name: 'weatherTypeAlt'})
+@Pipe({standalone: true, name: 'weatherTypeAlt'})
 export class WeatherTypeAltPipe implements PipeTransform {
   transform(data: any): any {
     let weatherDaily = parseInt(data[0].W);
@@ -76,7 +76,7 @@ export class WeatherTypeAltPipe implements PipeTransform {
   }
 }
 
-@Pipe({name: 'wType'})
+@Pipe({standalone: true, name: 'wType'})
 export class WTypePipe implements PipeTransform {
   transform(data: any): any {
     let weather = data[0].W
@@ -89,7 +89,7 @@ export class WTypePipe implements PipeTransform {
   }
 }
 
-@Pipe({name: 'uv'})
+@Pipe({standalone: true, name: 'uv'})
 export class uvPipe implements PipeTransform {
   transform(data: any): any {
     const uv = data[0].U;
@@ -110,7 +110,7 @@ export class uvPipe implements PipeTransform {
 }
 
 
-@Pipe({name: 'minTemp'})
+@Pipe({standalone: true, name: 'minTemp'})
 export class minTempPipe implements PipeTransform {
   transform(data: any): any {
     const tempArr = [];
@@ -121,7 +121,7 @@ export class minTempPipe implements PipeTransform {
   }
 }
 
-  @Pipe({name: 'maxTemp'})
+  @Pipe({standalone: true, name: 'maxTemp'})
   export class maxTempPipe implements PipeTransform {
     transform(data: any): any {
       const tempArr = [];

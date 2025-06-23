@@ -1,6 +1,9 @@
+<mo-header product="WIH - Weather Is Here" tier="ci" link="/home" allow-compact="true">
+  <p slot="right-content">Some interesting things here</p>
+</mo-header>
 <div id="searchBoy">
-  <form (ngSubmit)="submitForm()">
-    <mat-form-field>
+  <form (ngSubmit)="submitForm()" id="small">
+    <mat-form-field class="small">
       <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
       <mat-autocomplete #auto="matAutocomplete">
         <mat-option *ngFor="let location of filteredLocationNames | async" [value]="location.name" >
@@ -11,11 +14,17 @@
     <button type="submit">Submit</button>
   </form>
 </div>
-<div *ngIf="weatherData">
-  <app-big-weather [placeName]="myControl.value" [data]="weatherData.SiteRep.DV.Location.Period[0]"></app-big-weather>
-<!--  <img src="./assets/icons/Squiggle.png" alt="filler image" style="width:100%; height:120px">-->
-</div>
+@if(weatherData){
+  <div class="weatherContent">
+    <app-big-weather [placeName]="myControl.value" [data]="weatherData.SiteRep.DV.Location.Period[0]"></app-big-weather>
+<!--    <img src="./assets/icons/Squiggle.png" alt="filler image" >-->
+    <div id="weatherComp" >
+      @for(day of weatherData.SiteRep.DV.Location.Period; track day;){
+        <app-weather [data]="weatherData.SiteRep.DV.Location.Period[$index]"></app-weather>
+      }
+    </div>
+  </div>
+}
 
-<div id="weatherComp" *ngIf="weatherData">
-  <app-weather  *ngFor="let day of weatherData.SiteRep.DV.Location.Period; index as i;" [data]="weatherData.SiteRep.DV.Location.Period[i]" > </app-weather>
-</div>
+<mo-footer year="2025">
+</mo-footer>

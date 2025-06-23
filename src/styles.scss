@@ -30,3 +30,11 @@ h2{
     font-size: x-small !important;
   }
 }
+
+mat-form-field.small {
+  --mat-form-field-container-height: 40px;
+  --mat-form-field-container-vertical-padding: 8px;
+}
+#small{
+  height: 40px;
+}
